@@ -1,0 +1,350 @@
+/* ═══════════════════════════════════════════════════
+   FILE: index.css
+      ═══════════════════════════════════════════════════ */
+
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+      @import "tailwindcss";
+      @import "tw-animate-css";
+
+      :root {
+        --gold:   #c9a84c;
+          --gold-l: #e8c97e;
+            --gold-d: #8a6f2e;
+              --bg:     #080a0f;
+                --bg2:    #0e1119;
+                  --bg3:    #141824;
+                    --card:   #111520;
+                      --card2:  #181e2e;
+                        --text:   #f0f0f5;
+                          --text2:  #8a90a8;
+                            --text3:  #555a70;
+                              --red:    #e84855;
+                                --r:      16px;
+                                  --ease:   cubic-bezier(0.34, 1.56, 0.64, 1);
+                                  }
+
+                                  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+                                  html, body { height: 100%; overflow-x: hidden; }
+
+                                  body {
+                                    font-family: 'DM Sans', sans-serif;
+                                      background: var(--bg);
+                                        color: var(--text);
+                                        }
+
+                                        body::before {
+                                          content: '';
+                                            position: fixed;
+                                              inset: 0;
+                                                pointer-events: none;
+                                                  z-index: 0;
+                                                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+                                                      opacity: 0.6;
+                                                      }
+
+                                                      #root { position: relative; z-index: 1; }
+
+                                                      /* ── HEADER ── */
+                                                      .hdr {
+                                                        position: sticky;
+                                                          top: 0;
+                                                            z-index: 100;
+                                                              padding: 16px 18px 12px;
+                                                                background: linear-gradient(180deg, rgba(8,10,15,.98), rgba(8,10,15,.88));
+                                                                  backdrop-filter: blur(20px);
+                                                                    border-bottom: 1px solid rgba(201,168,76,.1);
+                                                                    }
+
+                                                                    .logo-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+
+                                                                    .logo {
+                                                                      font-family: 'Playfair Display', serif;
+                                                                        font-size: 24px;
+                                                                          font-weight: 900;
+                                                                            background: linear-gradient(135deg, var(--gold-l), var(--gold), var(--gold-d));
+                                                                              -webkit-background-clip: text;
+                                                                                -webkit-text-fill-color: transparent;
+                                                                                  background-clip: text;
+                                                                                  }
+                                                                                  .logo span { -webkit-text-fill-color: var(--text); color: var(--text); }
+
+                                                                                  .count-badge {
+                                                                                    font-size: 11px;
+                                                                                      color: var(--gold);
+                                                                                        background: rgba(201,168,76,.12);
+                                                                                          border: 1px solid rgba(201,168,76,.25);
+                                                                                            padding: 3px 9px;
+                                                                                              border-radius: 50px;
+                                                                                                font-weight: 600;
+                                                                                                }
+
+                                                                                                .srch { position: relative; margin-bottom: 12px; }
+                                                                                                .srch-icon { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); font-size: 14px; color: var(--text3); pointer-events: none; }
+                                                                                                .srch input {
+                                                                                                  width: 100%;
+                                                                                                    padding: 10px 14px 10px 38px;
+                                                                                                      background: var(--card2);
+                                                                                                        border: 1px solid rgba(255,255,255,.07);
+                                                                                                          border-radius: 50px;
+                                                                                                            color: var(--text);
+                                                                                                              font-family: 'DM Sans', sans-serif;
+                                                                                                                font-size: 13.5px;
+                                                                                                                  outline: none;
+                                                                                                                    transition: border-color .2s, box-shadow .2s;
+                                                                                                                    }
+                                                                                                                    .srch input:focus { border-color: rgba(201,168,76,.5); box-shadow: 0 0 0 3px rgba(201,168,76,.08); }
+                                                                                                                    .srch input::placeholder { color: var(--text3); }
+                                                                                                                    .srch-x { position: absolute; right: 13px; top: 50%; transform: translateY(-50%); color: var(--text3); cursor: pointer; font-size: 17px; background: none; border: none; line-height: 1; }
+
+                                                                                                                    .tabs { display: flex; gap: 7px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+                                                                                                                    .tabs::-webkit-scrollbar { display: none; }
+                                                                                                                    .tab { flex-shrink: 0; padding: 6px 14px; border-radius: 50px; font-size: 12.5px; font-weight: 500; border: 1px solid rgba(255,255,255,.1); background: transparent; color: var(--text2); cursor: pointer; transition: all .2s; white-space: nowrap; }
+                                                                                                                    .tab.on { background: linear-gradient(135deg, var(--gold), var(--gold-d)); border-color: transparent; color: #080a0f; font-weight: 700; }
+
+                                                                                                                    /* ── MAIN ── */
+                                                                                                                    main { padding: 20px 0 100px; position: relative; z-index: 1; }
+
+                                                                                                                    /* ── SKELETON ── */
+                                                                                                                    .skel { background: linear-gradient(90deg, var(--card), var(--card2), var(--card)); background-size: 200% 100%; animation: shim 1.5s infinite; border-radius: var(--r); }
+                                                                                                                    @keyframes shim { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+
+                                                                                                                    /* ── EMPTY ── */
+                                                                                                                    .empty { text-align: center; padding: 60px 20px 40px; color: var(--text3); }
+                                                                                                                    .empty .ico { font-size: 48px; margin-bottom: 12px; }
+                                                                                                                    .empty p { font-size: 14px; line-height: 1.6; }
+
+                                                                                                                    /* ── SECTION ── */
+                                                                                                                    .sec { margin-bottom: 28px; animation: fadeUp .4s ease both; }
+                                                                                                                    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+                                                                                                                    .sec-hdr { display: flex; align-items: center; justify-content: space-between; padding: 0 18px; margin-bottom: 13px; }
+                                                                                                                    .sec-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; }
+                                                                                                                    .sec-title::before { content: ''; display: inline-block; width: 3px; height: 16px; background: linear-gradient(180deg, var(--gold-l), var(--gold-d)); border-radius: 2px; margin-right: 9px; vertical-align: middle; }
+                                                                                                                    .sec-more { font-size: 11.5px; color: var(--gold); cursor: pointer; font-weight: 500; }
+
+                                                                                                                    /* ── HERO ── */
+                                                                                                                    .hero { margin-bottom: 28px; position: relative; height: 320px; overflow: hidden; }
+                                                                                                                    .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+                                                                                                                    .hero-g { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(8,10,15,.1) 0%, rgba(8,10,15,.2) 40%, rgba(8,10,15,.88) 70%, #080a0f 100%); }
+                                                                                                                    .hero-body { position: absolute; bottom: 0; left: 0; right: 0; padding: 18px; }
+                                                                                                                    .hero-badge { display: inline-flex; align-items: center; gap: 5px; background: linear-gradient(135deg, var(--gold), var(--gold-d)); color: #080a0f; font-size: 9px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; padding: 3px 9px; border-radius: 4px; margin-bottom: 7px; }
+                                                                                                                    .hero-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; line-height: 1.15; margin-bottom: 7px; text-shadow: 0 2px 10px rgba(0,0,0,.5); }
+                                                                                                                    .hero-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 11.5px; color: var(--text2); margin-bottom: 8px; }
+                                                                                                                    .dot { width: 3px; height: 3px; background: var(--gold); border-radius: 50%; }
+                                                                                                                    .hero-desc { font-size: 12px; color: var(--text2); line-height: 1.5; margin-bottom: 13px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+                                                                                                                    .hero-btns { display: flex; gap: 9px; }
+                                                                                                                    .btn-play { flex: 1; padding: 10px; background: linear-gradient(135deg, var(--gold-l), var(--gold)); border: none; border-radius: 10px; color: #080a0f; font-family: 'DM Sans', sans-serif; font-size: 13.5px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 5px; transition: all .2s var(--ease); }
+                                                                                                                    .btn-play:active { transform: scale(.96); }
+                                                                                                                    .btn-info { width: 44px; height: 44px; background: rgba(255,255,255,.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.15); border-radius: 10px; color: var(--text); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .2s; flex-shrink: 0; }
+                                                                                                                    .btn-info:active { transform: scale(.88); }
+
+                                                                                                                    /* ── SCROLL ROW ── */
+                                                                                                                    .row { display: flex; gap: 11px; overflow-x: scroll; -webkit-overflow-scrolling: touch; overflow-y: visible; padding: 4px 18px 8px; scrollbar-width: none; scroll-snap-type: x mandatory; scroll-padding-left: 18px; touch-action: pan-x; }
+                                                                                                                    .row::-webkit-scrollbar { display: none; }
+
+                                                                                                                    /* ── CARD VERTICAL ── */
+                                                                                                                    .cv { flex: 0 0 150px; width: 150px; scroll-snap-align: start; cursor: pointer; transition: transform .3s var(--ease); }
+                                                                                                                    .cv:active { transform: scale(.95); }
+                                                                                                                    .cv-poster { width: 150px; height: 225px; border-radius: 14px; overflow: hidden; position: relative; background: var(--card2); margin-bottom: 7px; box-shadow: 0 6px 20px rgba(0,0,0,.4); }
+                                                                                                                    .cv-poster img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform .4s; }
+                                                                                                                    .cv:active .cv-poster img { transform: scale(1.06); }
+                                                                                                                    .cv-badge { position: absolute; top: 7px; left: 7px; background: linear-gradient(135deg, var(--gold), var(--gold-d)); color: #080a0f; font-size: 8.5px; font-weight: 800; letter-spacing: .8px; text-transform: uppercase; padding: 2px 6px; border-radius: 5px; }
+                                                                                                                    .cv-ov { position: absolute; bottom: 0; left: 0; right: 0; height: 60%; background: linear-gradient(to top, rgba(8,10,15,.95), transparent); border-radius: 0 0 14px 14px; }
+                                                                                                                    .cv-ov-body { position: absolute; bottom: 0; padding: 10px 9px; width: 100%; }
+                                                                                                                    .cv-genre { font-size: 8.5px; color: var(--gold); font-weight: 600; margin-bottom: 2px; }
+                                                                                                                    .cv-title { font-size: 11.5px; font-weight: 600; line-height: 1.3; color: var(--text); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+                                                                                                                    .no-img { width: 100%; height: 100%; background: var(--card2); display: flex; align-items: center; justify-content: center; font-size: 32px; }
+
+                                                                                                                    /* ── TOP LIST ── */
+                                                                                                                    .tw { display: flex; align-items: center; gap: 12px; padding: 11px 18px; cursor: pointer; transition: background .15s; border-bottom: 1px solid rgba(255,255,255,.04); }
+                                                                                                                    .tw:active { background: rgba(255,255,255,.03); }
+                                                                                                                    .tw-rank { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; color: var(--text3); min-width: 26px; line-height: 1; }
+                                                                                                                    .tw-thumb { width: 65px; height: 95px; border-radius: 10px; overflow: hidden; flex-shrink: 0; background: var(--card2); box-shadow: 0 4px 12px rgba(0,0,0,.35); }
+                                                                                                                    .tw-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+                                                                                                                    .tw-info { flex: 1; min-width: 0; }
+                                                                                                                    .tw-title { font-weight: 600; font-size: 13.5px; line-height: 1.3; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+                                                                                                                    .tw-meta { font-size: 11px; color: var(--text2); margin-bottom: 5px; }
+                                                                                                                    .tw-pills { display: flex; gap: 4px; flex-wrap: wrap; }
+                                                                                                                    .pill { background: var(--bg3); border: 1px solid rgba(255,255,255,.08); color: var(--text2); font-size: 9.5px; padding: 2px 7px; border-radius: 50px; }
+                                                                                                                    .pill.g { background: rgba(201,168,76,.12); border-color: rgba(201,168,76,.25); color: var(--gold-l); }
+                                                                                                                    .tw-play { width: 34px; height: 34px; background: linear-gradient(135deg, var(--gold-l), var(--gold-d)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; box-shadow: 0 4px 12px rgba(201,168,76,.28); transition: transform .2s var(--ease); }
+                                                                                                                    .tw:active .tw-play { transform: scale(.85); }
+
+                                                                                                                    /* ── GRID ── */
+                                                                                                                    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: auto; gap: 10px; padding: 0 14px; }
+                                                                                                                    .gc { cursor: pointer; transition: transform .2s var(--ease); overflow: hidden; min-width: 0; }
+                                                                                                                    .gc:active { transform: scale(.93); }
+                                                                                                                    .gc-poster { width: 100%; aspect-ratio: 2 / 3; border-radius: 10px; overflow: hidden; position: relative; background: var(--card2); margin-bottom: 5px; box-shadow: 0 3px 12px rgba(0,0,0,.35); }
+                                                                                                                    .gc-poster img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+                                                                                                                    .gc-badge { position: absolute; top: 4px; left: 4px; background: rgba(232,72,85,.88); color: #fff; font-size: 7.5px; font-weight: 700; padding: 2px 5px; border-radius: 4px; text-transform: uppercase; letter-spacing: .4px; }
+                                                                                                                    .gc-title { font-size: 10.5px; font-weight: 600; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; word-break: break-word; }
+
+                                                                                                                    /* ── BOTTOM NAV ── */
+                                                                                                                    .bnav { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; display: flex; background: rgba(10,12,18,.95); backdrop-filter: blur(20px); border-top: 1px solid rgba(255,255,255,.07); padding: 10px 0; }
+                                                                                                                    .ni { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; cursor: pointer; padding: 3px 0; transition: all .2s; }
+                                                                                                                    .ni-ico { font-size: 19px; line-height: 1; transition: transform .2s var(--ease); }
+                                                                                                                    .ni-lbl { font-size: 9.5px; color: var(--text3); font-weight: 500; transition: color .2s; }
+                                                                                                                    .ni.on .ni-lbl { color: var(--gold); }
+                                                                                                                    .ni.on .ni-ico { transform: scale(1.15); }
+                                                                                                                    .ni:active .ni-ico { transform: scale(.9); }
+
+                                                                                                                    /* ── MODAL detalle ── */
+                                                                                                                    .mo { position: fixed; inset: 0; background: rgba(0,0,0,.85); z-index: 200; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; pointer-events: none; transition: opacity .3s; backdrop-filter: blur(8px); }
+                                                                                                                    .mo.open { opacity: 1; pointer-events: all; }
+                                                                                                                    .mo-box { background: var(--bg2); border-radius: 22px 22px 0 0; border-top: 1px solid rgba(201,168,76,.18); max-height: 88vh; overflow-y: auto; transform: translateY(100%); scrollbar-width: none; transition: transform .4s cubic-bezier(.16,1,.3,1); }
+                                                                                                                    .mo-box::-webkit-scrollbar { display: none; }
+                                                                                                                    .mo.open .mo-box { transform: none; }
+                                                                                                                    .mo-handle { width: 34px; height: 4px; background: rgba(255,255,255,.14); border-radius: 2px; margin: 13px auto 0; }
+                                                                                                                    .mo-img { margin: 12px 15px 0; border-radius: 14px; overflow: hidden; height: 220px; position: relative; }
+                                                                                                                    .mo-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+                                                                                                                    .mo-img-g { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 40%, var(--bg2) 100%); }
+                                                                                                                    .mo-body { padding: 15px 18px 32px; }
+                                                                                                                    .mo-type { font-size: 10px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--gold); margin-bottom: 7px; }
+                                                                                                                    .mo-title { font-family: 'Playfair Display', serif; font-size: 23px; font-weight: 700; line-height: 1.2; margin-bottom: 12px; }
+                                                                                                                    .mo-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+                                                                                                                    .mo-tag { background: var(--bg3); border: 1px solid rgba(255,255,255,.1); color: var(--text2); font-size: 11px; padding: 4px 10px; border-radius: 50px; }
+                                                                                                                    .mo-lbl { font-size: 10.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text3); margin-bottom: 7px; }
+                                                                                                                    .mo-syn { font-size: 13.5px; line-height: 1.65; color: var(--text2); margin-bottom: 22px; }
+
+                                                                                                                    /* ── Botones del modal (Ver + Editar) ── */
+                                                                                                                    .mo-actions {
+                                                                                                                      display: flex;
+                                                                                                                        gap: 10px;
+                                                                                                                          align-items: stretch;
+                                                                                                                          }
+
+                                                                                                                          .mo-btn {
+                                                                                                                            flex: 1;
+                                                                                                                              padding: 14px;
+                                                                                                                                background: linear-gradient(135deg, var(--gold-l), var(--gold));
+                                                                                                                                  border: none;
+                                                                                                                                    border-radius: 13px;
+                                                                                                                                      color: #080a0f;
+                                                                                                                                        font-family: 'DM Sans', sans-serif;
+                                                                                                                                          font-size: 15px;
+                                                                                                                                            font-weight: 700;
+                                                                                                                                              cursor: pointer;
+                                                                                                                                                display: flex;
+                                                                                                                                                  align-items: center;
+                                                                                                                                                    justify-content: center;
+                                                                                                                                                      gap: 7px;
+                                                                                                                                                        box-shadow: 0 7px 22px rgba(201,168,76,.28);
+                                                                                                                                                          transition: all .2s var(--ease);
+                                                                                                                                                            text-decoration: none;
+                                                                                                                                                            }
+                                                                                                                                                            .mo-btn:active { transform: scale(.97); }
+
+                                                                                                                                                            .mo-nolink {
+                                                                                                                                                              flex: 1;
+                                                                                                                                                                text-align: center;
+                                                                                                                                                                  color: var(--text3);
+                                                                                                                                                                    font-size: 13px;
+                                                                                                                                                                      padding: 14px;
+                                                                                                                                                                        border: 1px dashed rgba(255,255,255,.1);
+                                                                                                                                                                          border-radius: 13px;
+                                                                                                                                                                            display: flex;
+                                                                                                                                                                              align-items: center;
+                                                                                                                                                                                justify-content: center;
+                                                                                                                                                                                }
+
+                                                                                                                                                                                /* Botón editar en el modal (solo admin) */
+                                                                                                                                                                                .mo-edit-fab {
+                                                                                                                                                                                  width: 52px;
+                                                                                                                                                                                    height: 52px;
+                                                                                                                                                                                      flex-shrink: 0;
+                                                                                                                                                                                        background: rgba(201,168,76,.12);
+                                                                                                                                                                                          border: 1.5px solid rgba(201,168,76,.35);
+                                                                                                                                                                                            border-radius: 13px;
+                                                                                                                                                                                              font-size: 20px;
+                                                                                                                                                                                                cursor: pointer;
+                                                                                                                                                                                                  display: flex;
+                                                                                                                                                                                                    align-items: center;
+                                                                                                                                                                                                      justify-content: center;
+                                                                                                                                                                                                        transition: all .2s var(--ease);
+                                                                                                                                                                                                        }
+                                                                                                                                                                                                        .mo-edit-fab:active { transform: scale(.88); background: rgba(201,168,76,.22); }
+
+                                                                                                                                                                                                        /* ── Admin buttons en cards ── */
+                                                                                                                                                                                                        .del-btn { position: absolute; top: 5px; right: 5px; z-index: 10; width: 28px; height: 28px; border-radius: 50%; border: none; background: rgba(232,72,85,.88); color: #fff; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; transition: transform .2s, background .2s; backdrop-filter: blur(6px); }
+                                                                                                                                                                                                        .del-btn:active { transform: scale(.85); background: #c0392b; }
+                                                                                                                                                                                                        .edit-btn { position: absolute; top: 5px; right: 37px; z-index: 10; width: 28px; height: 28px; border-radius: 50%; border: none; background: rgba(201,168,76,.9); color: #080a0f; font-size: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; transition: transform .2s; backdrop-filter: blur(6px); }
+                                                                                                                                                                                                        .edit-btn:active { transform: scale(.85); }
+
+                                                                                                                                                                                                        /* ── Búsqueda ── */
+                                                                                                                                                                                                        .srch-lbl { font-size: 12.5px; color: var(--text2); margin-bottom: 13px; padding: 0 4px; }
+                                                                                                                                                                                                        .srch-lbl strong { color: var(--text); }
+
+                                                                                                                                                                                                        /* ── Load more ── */
+                                                                                                                                                                                                        .load-more-btn { background: var(--card2); border: 1px solid rgba(201,168,76,.3); color: var(--gold); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; padding: 10px 28px; border-radius: 50px; cursor: pointer; transition: all .2s; }
+                                                                                                                                                                                                        .load-more-btn:hover { background: rgba(201,168,76,.1); }
+
+                                                                                                                                                                                                        /* ── GÉNEROS ── */
+                                                                                                                                                                                                        .genre-pills-wrap {
+                                                                                                                                                                                                          display: flex;
+                                                                                                                                                                                                            flex-wrap: wrap;
+                                                                                                                                                                                                              gap: 8px;
+                                                                                                                                                                                                              }
+
+                                                                                                                                                                                                              .genre-pill {
+                                                                                                                                                                                                                display: flex;
+                                                                                                                                                                                                                  align-items: center;
+                                                                                                                                                                                                                    gap: 6px;
+                                                                                                                                                                                                                      padding: 8px 14px;
+                                                                                                                                                                                                                        border-radius: 50px;
+                                                                                                                                                                                                                          border: 1px solid rgba(255,255,255,.1);
+                                                                                                                                                                                                                            background: var(--card2);
+                                                                                                                                                                                                                              color: var(--text2);
+                                                                                                                                                                                                                                font-family: 'DM Sans', sans-serif;
+                                                                                                                                                                                                                                  font-size: 12.5px;
+                                                                                                                                                                                                                                    font-weight: 500;
+                                                                                                                                                                                                                                      cursor: pointer;
+                                                                                                                                                                                                                                        transition: all .2s var(--ease);
+                                                                                                                                                                                                                                          white-space: nowrap;
+                                                                                                                                                                                                                                          }
+
+                                                                                                                                                                                                                                          .genre-pill:active { transform: scale(.94); }
+
+                                                                                                                                                                                                                                          .genre-pill.active {
+                                                                                                                                                                                                                                            background: linear-gradient(135deg, var(--gold), var(--gold-d));
+                                                                                                                                                                                                                                              border-color: transparent;
+                                                                                                                                                                                                                                                color: #080a0f;
+                                                                                                                                                                                                                                                  font-weight: 700;
+                                                                                                                                                                                                                                                    box-shadow: 0 4px 14px rgba(201,168,76,.3);
+                                                                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                                                                    .genre-count {
+                                                                                                                                                                                                                                                      font-size: 10px;
+                                                                                                                                                                                                                                                        font-weight: 700;
+                                                                                                                                                                                                                                                          background: rgba(255,255,255,.12);
+                                                                                                                                                                                                                                                            padding: 1px 6px;
+                                                                                                                                                                                                                                                              border-radius: 50px;
+                                                                                                                                                                                                                                                                line-height: 1.4;
+                                                                                                                                                                                                                                                                }
+
+                                                                                                                                                                                                                                                                .genre-pill.active .genre-count {
+                                                                                                                                                                                                                                                                  background: rgba(0,0,0,.18);
+                                                                                                                                                                                                                                                                    color: #080a0f;
+                                                                                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                                                                                    /* ── EDIT MODAL ── */
+                                                                                                                                                                                                                                                                    .edit-mo { position: fixed; inset: 0; background: rgba(0,0,0,.85); z-index: 300; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; pointer-events: none; transition: opacity .3s; backdrop-filter: blur(8px); }
+                                                                                                                                                                                                                                                                    .edit-mo.open { opacity: 1; pointer-events: all; }
+                                                                                                                                                                                                                                                                    .edit-box { background: var(--bg2); border-radius: 22px 22px 0 0; border-top: 1px solid rgba(201,168,76,.25); max-height: 90vh; overflow-y: auto; transform: translateY(100%); scrollbar-width: none; transition: transform .4s cubic-bezier(.16,1,.3,1); padding: 0 0 40px; }
+                                                                                                                                                                                                                                                                    .edit-box::-webkit-scrollbar { display: none; }
+                                                                                                                                                                                                                                                                    .edit-mo.open .edit-box { transform: none; }
+                                                                                                                                                                                                                                                                    .edit-handle { width: 34px; height: 4px; background: rgba(255,255,255,.14); border-radius: 2px; margin: 13px auto 16px; }
+                                                                                                                                                                                                                                                                    .edit-header { display: flex; align-items: center; justify-content: space-between; padding: 0 18px 16px; border-bottom: 1px solid rgba(255,255,255,.06); }
+                                                                                                                                                                                                                                                                    .edit-title-lbl { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--gold); }
+                                                                                                                                                                                                                                                                    .edit-close { width: 32px; height: 32px; background: rgba(255,255,255,.08); border: none; border-radius: 50%; color: var(--text2); font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+                                                                                                                                                                                                                                                                    .edit-section { padding: 16px 18px 0; }
+                                                                                                                                                                                                                                                                    .edit-lbl { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text3); margin-bottom: 10px; }
+                                                                                                                                                                                                                                                                    .type-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+                                                                                                                                                                                                                                                                    .type-pill { padding: 8px 16px; border-radius: 50px; border: 1.5px solid rgba(255,255,255,.1); background: transparent; color: var(--text2); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: all .2s; }
+                                                                                                                                                                                                                                                                    .type-pill.active { background: linear-gradient(135deg, var(--gold), var(--gold-d)); border-color: transparent; color: #080a0f; }
+                                                                                                                                                                                                                                                                    .edit-input { width: 100%; padding: 11px 14px; background: var(--card2); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 13.5px; outline: none; transition: border-color .2s; }
+                                                                                                                                                                                                                                                                    .edit-input:focus { border-color: rgba(201,168,76,.5); }
+                                                                                                                                                                                                                                                                    .edit-input::placeholder { color: var(--text3); }
+                                                                                                                                                                                                                                                                    textarea.edit-input { resize: none; min-height: 80px; }
+                                                                                                                                                                                                                                                                    .edit-save { margin: 20px 18px 0; width: calc(100% - 36px); padding: 14px; background: linear-gradient(135deg, var(--gold-l), var(--gold)); border: none; border-radius: 13px; color: #080a0f; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; cur
